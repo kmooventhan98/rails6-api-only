@@ -21,6 +21,11 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    Book.find(params[:id]).destroy!
+    head :no_content
+  end
+
   private
   def book_params
     params.require(:book).permit(:title,:author)
